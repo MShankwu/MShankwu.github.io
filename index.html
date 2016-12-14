@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CSharp扩展方法/" style="font-size: 10px;">CSharp扩展方法</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
+						<a href="/tags/CSharp/" style="font-size: 10px;">CSharp</a> <a href="/tags/CSharp扩展方法/" style="font-size: 10px;">CSharp扩展方法</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
 					</div>
 				</section>
 				
@@ -224,6 +224,74 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSharp扩展方法/">CSharp扩展方法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-CSharp-ExtendedMethod" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/CSharp-ExtendedMethod/" class="article-date">
+  	<time datetime="2016-12-13T14:11:10.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/13/CSharp-ExtendedMethod/">CSharp_ExtendedMethod</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-扩展方法的语法约束"><a href="#1-扩展方法的语法约束" class="headerlink" title="1. 扩展方法的语法约束"></a>1. 扩展方法的语法约束</h3><p>在C#中，<code>this</code>关键字可以作用于静态方法的参数，用于表示对该参数的类型本身进行<strong>扩展方法</strong>。扩展方法必须定义在静态方法体内，通常会将所有的静态方法置于一个静态类中。<br>For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static partial class EnumerableExtensions</span><br><span class="line">&#123;</span><br><span class="line">	public static IEnumerable&lt;TSource&gt; Cycle&lt;TSource&gt;(this IEnumerable&lt;TSource&gt; source)</span><br><span class="line">	&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void call(IEnumerable&lt;int&gt; source)</span><br><span class="line">&#123;</span><br><span class="line">	IEnumerable&lt;int&gt; nextIterator = source.Cycle();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>该例定义了一个静态类EnumerableExtensions用于为IEnumerable<t>类型扩展自定义的Linq操作，this关键字作用于静态方法的参数。<br>实践时候可以使用形如正常对象的方法来进行调用，达到扩展方法的效果。</t></p>
+<h3 id="2-扩展方法相对于继承的优势"><a href="#2-扩展方法相对于继承的优势" class="headerlink" title="2. 扩展方法相对于继承的优势"></a>2. 扩展方法相对于继承的优势</h3><p><strong>继承（extends）</strong>是另外一种实现对已有类的扩展方式，通过子类来扩展对原有类的行为。扩展方法相对于继承的优势主要体现在：</p>
+<ul>
+<li>扩展方法可以对密封类(sealed)进行扩展，譬如对C#的string类型扩展出自定义的行为，而继承方式无法对sealed进行。</li>
+<li>扩展方法避免了继承这种紧耦合的结构，扩展类类似于插件，仅当需要的时候进行import。</li>
+</ul>
+<h3 id="3-扩展方法的实践"><a href="#3-扩展方法的实践" class="headerlink" title="3. 扩展方法的实践"></a>3. 扩展方法的实践</h3><p>扩展方法的核心意义并不在于语言特性本身，更重要的是如何打开扩展方法的实践思路。以下链接是优秀的参考教材：</p>
+<ul>
+<li><a href="http://www.cnblogs.com/ldp615/archive/2009/08/07/1541404.html" target="_blank" rel="external">c#扩展方法的奇思妙用</a></li>
+<li><a href="https://github.com/mariusschulz/ExtraLINQ.git" target="_blank" rel="external">ExtraLINQ</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSharp/">CSharp</a></li></ul>
 	</div>
 
       
